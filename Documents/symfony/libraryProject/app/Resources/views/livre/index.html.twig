@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+ {% block stylesheets %}
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        
+        
+        {% endblock %}
+{% block body %}
+    <h1>Livres list</h1>
+ <a href="{{ path('livre_new') }}"><button type="button" class="btn btn-primary">Ajout Livre</button>
+   </a>
+
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th>Id</th>
+                <th>Titre</th>
+                <th>Auteur</th>
+                <th>Description</th>
+                <th>Motcle</th>
+                <th>Disponibilite</th>
+                <th>Dateidition</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for livre in livres %}
+            <tr>
+                <td><a href="{{ path('livre_show', { 'id': livre.id }) }}">{{ livre.id }}</a></td>
+                <td>{{ livre.titre }}</td>
+                <td>{{ livre.auteur }}</td>
+                <td>{{ livre.description }}</td>
+                <td>{{ livre.motCle }}</td>
+                <td>{% if livre.disponibilite %}Yes{% else %}No{% endif %}</td>
+                <td>{% if livre.dateIdition %}{{ livre.dateIdition|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('livre_show', { 'id': livre.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('livre_edit', { 'id': livre.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

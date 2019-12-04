@@ -1,0 +1,13 @@
+
+
+user_front:
+    resource: "@UserFrontBundle/Resources/config/routing.yml"
+    prefix:   /
+
+admin_back:
+    resource: "@AdminBackBundle/Resources/config/routing.yml"
+    prefix:   /
+
+app:
+    resource: '@AppBundle/Controller/'
+    type: annotation

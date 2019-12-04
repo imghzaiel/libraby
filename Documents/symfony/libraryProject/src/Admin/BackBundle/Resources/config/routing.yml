@@ -1,0 +1,12 @@
+admin_back_livre:
+    resource: "@AdminBackBundle/Resources/config/routing/livre.yml"
+    prefix:   /livre
+    
+admin_back_categorie:
+    resource: "@AdminBackBundle/Resources/config/routing/categorie.yml"
+    prefix:   /categorie
+
+
+admin_back_homepage:
+    path:     /
+    defaults: { _controller: AdminBackBundle:Default:index }
